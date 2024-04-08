@@ -2,8 +2,8 @@ from flask import Flask,render_template,redirect,request
 import pickle
 import numpy
 
-cv=pickle.load(open('cv.pkl','rb'))
-clf=pickle.load(open('clf.pkl','rb'))
+cv=pickle.load(open('vectorizer.pkl','rb'))
+clf=pickle.load(open('lr_clf.pkl','rb'))
 
 app=Flask(__name__)
 
