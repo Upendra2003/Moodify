@@ -12,12 +12,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body{
-            background-image: url('{{ url_for("static", filename="images/bg.jpg") }}');
-            height: 500px; 
+            /* background-image: url('{{ url_for("static", filename="images/bg.jpg") }}'); */
+            /* height: 500px; 
             background-position: center; 
             background-repeat: no-repeat; 
-            background-size: cover; 
+            background-size: cover;  */
         }
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
         .manrope-.logo,.tag,.input {
             font-family: "Manrope", sans-serif;
             font-optical-sizing: auto;
@@ -95,6 +106,15 @@
             body {
                 height: 100vh; /* Set the height to full viewport height */
             }
+            #bg-video {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1;
+            }
             .sec{
             flex-direction: column;
         }   
@@ -114,11 +134,16 @@
     </style>
 </head>
 
-<body class="bg-gray-100">
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='video/bg2.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      
     <nav class="p-4 mt-5">
         <div class="container mx-auto flex justify-between items-center">
             <div>
-                <a href="#" class="logo text-green-700 text-2xl font-bold">Moodify</a>
+                <a href="#" class="logo text-gray-200 text-2xl font-bold">Moodify</a>
             </div>
         </div>
     </nav>
@@ -128,16 +153,16 @@
                 <img src="{{ url_for('static', filename='images/left.png') }}" alt="">
             </div>
             <div class="right floating text-center md:text-left">
-                <h1 class="heading text-4xl md:text-7xl text-green-700 text-shadow-lg">Mental Health Detector</h1>
-                <p class="tag text-sm md:text-base">Your Emotional Wellness Companion: Detecting stress, fostering resilience.</p>
+                <h1 class="heading text-4xl md:text-7xl text-white text-shadow-lg">Mental Health Detector</h1>
+                <p class="tag text-sm md:text-base text-white">Your Emotional Wellness Companion: Detecting stress, fostering resilience.</p>
             </div>
         </section>
     </div>
 
-    <div class="submit mx-auto px-4 md:w-3/4 lg:w-11/12 border-solid border-2 border-green-700 rounded-md p-1 mt-3 shadow-lg flex items-center">
+    <div class="submit mx-auto px-4 md:w-3/4 lg:w-11/12 border-solid border-2 border-white rounded-md p-1 mt-3 shadow-lg flex items-center">
         <form action="/" method="post" class="flex-grow flex items-center">
-            <input type="text" name="input_data" class="input flex-grow p-1.5 border-none outline-none">
-            <button type="submit" class="btn bg-green-700 px-3 py-1.5 rounded-md text-white ml-2"><i class="fas fa-chevron-right"></i></button>
+            <input type="text" name="input_data" class="input flex-grow p-1.5 text-gray-200 border-none outline-none">
+            <button type="submit" class="btn bg-white px-3 py-1.5 rounded-md text-white ml-2"><i class="fas fa-chevron-right text-black"></i></button>
         </form>
     </div>
     <div>

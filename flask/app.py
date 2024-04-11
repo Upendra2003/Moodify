@@ -37,3 +37,6 @@ def home():
 
     # Pass the prediction result and quote to the frontend
     return render_template('index.html', prediction=pred_result, quote=quote)
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
